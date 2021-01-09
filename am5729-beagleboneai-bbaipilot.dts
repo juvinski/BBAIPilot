@@ -1,0 +1,215 @@
+/*
+ * Copyright (C) 2021 - Vinicius Juvinski - juvinski@hotmail.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+#include "am5729-beagleboneai.dts"
+
+/ {
+	rcleds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&cape_pins_rc>;
+	};
+};
+
+&cape_pins {
+	status = "disabled";
+};
+
+&dra7_pmx_core {
+	cape_pins_rc: cape_pins_rc {
+		pinctrl-single,pins = <
+
+				DRA7XX_CORE_IOPAD(0x3698, PIN_OUTPUT | MUX_MODE14) /* E17: P8.9: gpio6_18 - LED 1 */
+				DRA7XX_CORE_IOPAD(0x36E8, PIN_OUTPUT | MUX_MODE14) /* A13: P8.10: gpio6_4 - LED 2 */
+				DRA7XX_CORE_IOPAD(0x36EC, PIN_OUTPUT | MUX_MODE14) /* G14: P8.7: gpio6_5 - LED 3 */
+				DRA7XX_CORE_IOPAD(0x36F0, PIN_OUTPUT | MUX_MODE14) /* F14: P8.8: gpio6_6 - BUZZER */
+				DRA7XX_CORE_IOPAD(0x3624, PIN_OUTPUT | MUX_MODE14) /* A7: P8.17: gpio8_18 - RELAY 1 */
+				DRA7XX_CORE_IOPAD(0x3588, PIN_OUTPUT | MUX_MODE14) /* F5: P8.18: gpio4_9 - RELAY 2 */
+				DRA7XX_CORE_IOPAD(0x358C, PIN_OUTPUT | MUX_MODE14) /* E6: P8.19: gpio4_10 - RELAY 3 */
+				DRA7XX_CORE_IOPAD(0x3608, PIN_OUTPUT | MUX_MODE14) /* D8: P8.34: gpio8_11 - RELAY 4 */
+				DRA7XX_CORE_IOPAD(0x3590, PIN_OUTPUT | MUX_MODE14) /* D3: P8.13: gpio4_11 - RELAY 5 */
+				DRA7XX_CORE_IOPAD(0x3598, PIN_OUTPUT | MUX_MODE14) /* D5: P8.14: gpio4_13 - RELAY 6 */
+
+				DRA7XX_CORE_IOPAD(0x372C, PIN_INPUT | MUX_MODE4) /* B19: P9.11a: uart5_rxd - UART5_RX */
+				DRA7XX_CORE_IOPAD(0x3730, PIN_OUTPUT | MUX_MODE4) /* C17: P9.13: uart5_txd - UART5_TX */
+
+				DRA7XX_CORE_IOPAD(0x37CC, PIN_OUTPUT | MUX_MODE0) /* B24: P9.17a: spi2_cs0 - SPI2 CS0*/
+				DRA7XX_CORE_IOPAD(0x37C8, PIN_OUTPUT | MUX_MODE0) /* G17: P9.18a: spi2_d0 - SPI2_MOSI */
+				DRA7XX_CORE_IOPAD(0x37C4, PIN_INPUT | MUX_MODE0) /* B22: P9.21b: spi2_d1 - SPI2_MISO */
+				DRA7XX_CORE_IOPAD(0x37C0, PIN_OUTPUT | MUX_MODE0) /* A26: P9.22b: spi2_sclk - SPI2_SCLK */
+
+				DRA7XX_CORE_IOPAD(0x3440, PIN_INPUT_PULLUP | MUX_MODE7) /* R6: P9.19a: i2c4_scl - I2C2_SCL */
+				DRA7XX_CORE_IOPAD(0x3444, PIN_INPUT_PULLUP | MUX_MODE7) /* T9: P9.20a: i2c4_sda - I2C2_SDA */
+
+				DRA7XX_CORE_IOPAD(0x368C, PIN_INPUT_PULLUP | MUX_MODE2) /* F20: P9.24: dcan2_rx - CAN2_RX */
+				DRA7XX_CORE_IOPAD(0x3688, PIN_OUTPUT_PULLUP | MUX_MODE2) /* E21: P9.26a: dcan2_tx - CAN2_TX */
+
+				DRA7XX_CORE_IOPAD(0x36E0, PIN_OUTPUT_PULLUP | MUX_MODE3) /* A12: P9.28: spi3_cs0 - SPI3_CS0 */
+				DRA7XX_CORE_IOPAD(0x36D8, PIN_INPUT_PULLUP | MUX_MODE3) /* A11: P9.29a: spi3_d1 - SPI3_MISO */
+				DRA7XX_CORE_IOPAD(0x36DC, PIN_OUTPUT_PULLUP | MUX_MODE3) /* B13: P9.30:spi3_d0 - SPI3_MOSI */
+				DRA7XX_CORE_IOPAD(0x36D4, PIN_INPUT_PULLUP | MUX_MODE3) /* B12: P9.31	a: spi3_sclk - SPI3_SCK */
+				DRA7XX_CORE_IOPAD(0x36E4, PIN_OUTPUT_PULLUP | MUX_MODE3) /* E14: P9.42a: spi3_cs1 - SPI3_CS1 */
+
+				DRA7XX_CORE_IOPAD(0x35B4, MUX_MODE15) /* A3: P8.15a: pr1_ecap0_ecap_capin_apwm_o = RCIN DISABLE */
+				DRA7XX_CORE_IOPAD(0x3570, PIN_INPUT_PULLUP | MUX_MODE11) /* D1: P8.15b: pr1_ecap0_ecap_capin_apwm_o = RCIN */ 
+
+				DRA7XX_CORE_IOPAD(0x3740, MUX_MODE15) /* D17: P8.32a: pr2_ecap0_ecap_capin_apwm_o = RCIN */
+				DRA7XX_CORE_IOPAD(0x3618, PIN_INPUT_PULLUP | MUX_MODE10) /* C7: P8.32a: pr2_ecap0_ecap_capin_apwm_o = RCIN */
+
+				DRA7XX_CORE_IOPAD(0x3738, PIN_OUTPUT | MUX_MODE3) /* A21: P8.37b: uart8_txd - UART8_TX */
+				DRA7XX_CORE_IOPAD(0x3734, PIN_INPUT | MUX_MODE3) /* C18: P8.38b: uart8_rxd -  UART8_RX */
+
+				/* PRU OUTPUT */
+				/* pr2_pru0_gpo17 C9/A16  P8_28 MODE 13 - RCOUT 1*/
+				DRA7XX_CORE_IOPAD(0x362C, PIN_OUTPUT | MUX_MODE13) /* C9: P8.28b: pr2_pru0_gpo17 -  RCOUT 1 */
+				DRA7XX_CORE_IOPAD(0x35C8, MUX_MODE15) /* D11: P8.28a: spi3_cs0 -  DISABLE */
+
+				/* pr2_pru0_gpo16 A8/C15  P8_27 MODE13 - RCOUT 2*/
+				DRA7XX_CORE_IOPAD(0x3628, PIN_OUTPUT | MUX_MODE13) /* A8: P8.27b: pr2_pru0_gpo16 -  RCOUT 2 */
+				DRA7XX_CORE_IOPAD(0x35D8, MUX_MODE15) /* E11: P8.27a: spi3_sclk -  DISABLE */
+
+				/* pr2_pru0_gpo19 B9/A18  P8_30 MODE13 - RCOUT 3*/
+				DRA7XX_CORE_IOPAD(0x3634, PIN_OUTPUT | MUX_MODE13) /* B9: P8.30b: pr2_pru0_gpo19 -  RCOUT 3 */
+				DRA7XX_CORE_IOPAD(0x35CC, MUX_MODE15) /* B10: P8.30a: spi3_d1 -  DISABLE */
+				
+				/* pr2_pru0_gpo18 A9/A19  P8_29 MODE13 - RCOUT 4*/
+				DRA7XX_CORE_IOPAD(0x3630, PIN_OUTPUT | MUX_MODE13) /* A9: P8.29b: pr2_pru0_gpo18 -  RCOUT 4 */
+				DRA7XX_CORE_IOPAD(0x35D4, MUX_MODE15) /* C11: P8.29a: spi3_d0 -  DISABLE */
+
+				/* pr2_pru0_gpo4 E7/AC7  P8_40 MODE13 - RCOUT 5 */
+				DRA7XX_CORE_IOPAD(0x35F8, PIN_OUTPUT | MUX_MODE13) /* E7: P8.40: pr2_pru0_gpo4 -  RCOUT 5 */
+
+				/* pr2_pru0_gpo3 F8/AC4  P8_39 MODE13 - RCOUT 6 */
+				DRA7XX_CORE_IOPAD(0x35F4, PIN_OUTPUT | MUX_MODE13) /* F8: P8.39: pr2_pru0_gpo3 -  RCOUT 6 */
+
+				/* pr2_pru0_gpo2 F9/AD4  P8_42 MODE13 - RCOUT 7 */
+				DRA7XX_CORE_IOPAD(0x35F0, PIN_OUTPUT | MUX_MODE13) /* F9: P8.42: pr2_pru0_gpo2 -  RCOUT 7 */
+
+				/* pr2_pru0_gpo1 E9/AB4  P8_41 MODE13 - RCOUT 8 */
+				DRA7XX_CORE_IOPAD(0x35EC, PIN_OUTPUT | MUX_MODE13) /* E9: P8.41: pr2_pru0_gpo1 -  RCOUT 8 */
+
+				/* pr2_pru0_gpo0 G11/AC5 P8_44 MODE13 - RCOUT 9 */
+				DRA7XX_CORE_IOPAD(0x35E8, PIN_OUTPUT | MUX_MODE13) /* G11: P8.44: pr2_pru0_gpo0 -  RCOUT 9 */
+
+				/* pr2_pru1_gpo20 F10 P8_43 MODE13 - RCOUT 10 */
+				DRA7XX_CORE_IOPAD(0x35E4, PIN_OUTPUT | MUX_MODE13) /* F10: P8.43: pr2_pru1_gpo20 -  RCOUT 10 */
+
+				/* pr2_pru1_gpo19 G10 P8_46 MODE13 - RCOUT 11 */
+				DRA7XX_CORE_IOPAD(0x35E0, PIN_OUTPUT | MUX_MODE13) /* G10: P8.46: pr2_pru1_gpo19 -  RCOUT 11 */
+
+				/* pr2_pru1_gpo18 F11 P8_45 MODE13 - RCOUT 12 */
+				DRA7XX_CORE_IOPAD(0x35DC, PIN_OUTPUT | MUX_MODE13) /* F11: P8.45: pr2_pru0_gpo18 -  RCOUT 12 */
+
+		>;
+	};
+};
+
+&uart8 {
+	status = "okay";
+};
+
+&uart5 {
+	status = "okay";
+};
+
+&i2c4 {  
+ status = "okay";  
+ clock-frequency = <400000>;  
+ pinctrl-names = "default";
+};  
+
+&dcan2 {
+	status = "okay";
+};
+
+&mcspi2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	ti,pindir-d0-out-d1-in = <1>;
+
+	channel@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		symlink = "spi/0.0";
+		reg = <0>;
+		spi-max-frequency = <24000000>;
+	};
+
+	channel@1 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		symlink = "spi/0.1";
+		reg = <1>;
+		spi-max-frequency = <24000000>;
+	};
+};
+
+&mcspi3 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	ti,pindir-d0-out-d1-in = <1>;
+
+	channel@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		symlink = "spi/1.0";
+		reg = <0>;
+		spi-max-frequency = <24000000>;
+	};
+
+	channel@1 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		symlink = "spi/1.1";
+		reg = <1>;
+		spi-max-frequency = <24000000>;
+	};
+};
+
+/* &epwmss0 { */
+/* 	status = "okay"; */
+/* }; */
+
+/* &epwmss1 { */
+/* 	status = "okay"; */
+/* }; */
+
+/* &epwmss2 { */
+/* 	status = "okay"; */
+/* }; */
+
+/* &ehrpwm1 { */
+/* 	status = "okay"; */
+/* }; */
+
+/* &ehrpwm2 { */
+/* 	status = "okay"; */
+/* }; */
+/* &pruss_soc_bus1 { */
+/* 	status = "okay"; */
+/* }; */
+
+/* &pruss1 { */
+/* 	status = "okay"; */
+/* }; */
+
+&pruss_soc_bus2 {
+    pinctrl-names = "default";
+	status = "okay";
+};
+
+&pruss2 {
+    pinctrl-names = "default";
+	status = "okay";
+};
