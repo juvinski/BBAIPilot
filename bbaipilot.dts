@@ -13,6 +13,63 @@
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&cape_pins_rc>;
+
+		/* Ardupilot lets */
+		amber_led {
+			label = "amber";
+			gpios = <&gpio6 18 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		blue_led {
+			label = "blue";
+			gpios = <&gpio6 4 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		red_led {
+			label = "red";
+			gpios = <&gpio3 11 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+
+		/* Ardupilot Safety Swith */
+		safety_sw {
+			label = "safety";
+			gpios = <&gpio8 30 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+
+		/* Relay pins */
+		relay1_pin {
+			label = "relay1";
+			gpios = <&gpio8 18 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		relay2_pin {
+			label = "relay2";
+			gpios = <&gpio4 9 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		relay3_pin {
+			label = "relay3";
+			gpios = <&gpio4 10 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		relay4_pin {
+			label = "relay4";
+			gpios = <&gpio8 11 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+		relay5_pin {
+			label = "relay5";
+			gpios = <&gpio4 11 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};		
+		relay6_pin {
+			label = "relay6";
+			gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
+
 	};
 };
 
